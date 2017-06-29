@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "history": "^4.6.3",
     "moment": "^2.18.1",
     "node-uuid": "^1.4.8",
     "react": "^15.6.1",
@@ -11,10 +12,13 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
+    "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0",
     "toaster": "^0.1.2"
   },
   "devDependencies": {
-    "react-scripts": "1.0.9"
+    "react-scripts": "1.0.9",
+    "redux-immutable-state-invariant": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

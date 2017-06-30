@@ -8,6 +8,8 @@ import './index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
 
 import * as history from './history';
 import configureStore from './store/configureStore';
@@ -18,6 +20,9 @@ store.subscribe(() => {
     const state = store.getState();
     console.log(state);
 });
+
+store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 ReactDOM.render(
     <Provider store={store}>

@@ -4,14 +4,14 @@ import Home from '../home/HomePage';
 import NotFound from './NotFound';
 import About from '../about/AboutPage';
 import CoursesPage from '../course/CoursesPage';
-
+import ManageCoursePage from '../course/ManageCoursePage';
 const Main = (props) => {
     return(
         <Switch>
 
             <Route path="/" exact component={Home} />
             <Route path="/courses" component={CoursesPage} />
-
+            <Route path="/course" component={ManageCoursePage} />
             <Route path="/about" component={About} />
 
 

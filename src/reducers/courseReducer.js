@@ -1,10 +1,13 @@
-const courseReducerInitialState = [];
+import * as types from '../actions/actionTypes';
+import initialState from './initialState';
+
+const courseReducerInitialState = initialState.courses;
 export const courseReducer = (state = courseReducerInitialState, action) => {
     switch (action.type) {
-        case `CREATER_COURSE`:
+        case types.CREATE_COURSE:
             return [...state, Object.assign({}, action.course)];
-        // case ACTION_TYPE_2:
-        //     return state
+         case types.LOAD_COURSES_SUCCESS:
+             return action.courses;
         default:
             return state
     }

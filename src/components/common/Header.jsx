@@ -1,7 +1,9 @@
 import React from 'react';
 import {NavLink, Link} from 'react-router-dom';
 
-const Header = (props) => {
+import LoadingDots from './LoadingDots';
+
+const Header = ({loading, children}) => {
     return (
         <div>
             <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -28,16 +30,18 @@ const Header = (props) => {
                             <NavLink to="/about" className="nav-link" activeClassName="active">About</NavLink>
                             
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
-                        </li>
+                        
                         <li className="nav-item">
                             <a className="nav-link disabled" href="#">Disabled</a>
+                        </li>
+
+                        <li className="nav-item">
+                          {loading && <LoadingDots interval={100} dots={20} />}
                         </li>
                     </ul>
                 </div>
             </nav>
-            {props.children}
+            {children}
         </div>
     )
 }

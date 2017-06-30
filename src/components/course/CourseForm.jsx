@@ -1,7 +1,6 @@
 import React from 'react'
 import {PropTypes} from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+
 
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
@@ -28,6 +27,7 @@ const CourseForm = ({
                 label="Author"
                 value={course.authorId}
                 defaultOption="Select Author"
+                onChange={onChange}
                 options={allAuthors}
                 error={errors.authorId}/>
             <TextInput
@@ -62,17 +62,5 @@ CourseForm.propTypes = {
     loading: PropTypes.bool,
     errors: PropTypes.object
 };
-
-// const mapStateToProps = (state, ownProps) => {
-//     return {course: state.course, allAuthors: state.allAuthors, loading: state.loading}
-// }
-
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     return {
-//        // actions: bindActionCreators(actions, dispatch)
-//     };
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CourseForm);
 
 export default CourseForm;

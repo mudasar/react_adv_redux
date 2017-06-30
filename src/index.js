@@ -26,9 +26,7 @@ store.dispatch(loadAuthors());
 
 ReactDOM.render(
     <Provider store={store}>
-
     <Router history={history}>
         <App/>
-    </Router>
-</Provider>, document.getElementById('root'));
+    </Router></Provider>, document.getElementById('root'));
 registerServiceWorker();

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {PropTypes} from 'prop-types';
 import {connect} from 'react-redux';
-import * as courseActions from '../../actions/courseActions';
+import {withRouter} from 'react-router-dom';
+
 
 import CourseList from './CourseList';
 
@@ -9,13 +10,18 @@ class CoursesPage extends Component {
 
     constructor(props, context){
         super(props, context);
-        
+        this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
+    }
+
+    redirectToAddCoursePage(){
+        this.props.history.push('/course');
     }
 
     render () {
         return (
             <div>
                 <h1>Courses</h1>
+                <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage} />
                 <CourseList />
             </div>
         )
@@ -34,4 +40,4 @@ const mapStateToProps = (state, ownProps) => {
 
 
 
-export default connect(mapStateToProps)(CoursesPage);
+export default withRouter(connect(mapStateToProps)(CoursesPage));

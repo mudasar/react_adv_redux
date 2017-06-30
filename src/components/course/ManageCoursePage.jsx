@@ -39,8 +39,9 @@ class ManageCoursePage extends Component {
 
     saveCourse(e){
         e.preventDefault();
-        this.props.actions.saveCourse(this.state.course);
-        this.props.history.push('/courses');
+        this.props.actions.saveCourse(this.state.course).then(() => {
+            this.props.history.push('/courses');
+        });
     }
 
     render() {

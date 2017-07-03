@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import {mount, shallow} from 'enzyme';
-import { authorFormattedForDropdown } from './selectors';
+import { authorFormattedForDropdown } from './0selectors';
 
 
 describe('Author Selectors', () => {

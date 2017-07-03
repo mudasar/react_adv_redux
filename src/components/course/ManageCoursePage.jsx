@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom';
 
 import * as actions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
+import toastr from 'toastr';
 
 class ManageCoursePage extends Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class ManageCoursePage extends Component {
         this.state = {
             course: Object.assign({}, this.props.course),
             errors: {},
-            authors:  this.props.authors
+            authors:  this.props.authors,
+            saving: false
         };
         this.updateCourseState = this.updateCourseState.bind(this);
         this.saveCourse = this.saveCourse.bind(this);
@@ -39,8 +41,15 @@ class ManageCoursePage extends Component {
 
     saveCourse(e){
         e.preventDefault();
+        this.setState({saving: true});
         this.props.actions.saveCourse(this.state.course).then(() => {
+            this.setState({saving: false});
+            toastr.success('Course is saved');
             this.props.history.push('/courses');
+        }, (error) => {
+            toastr.error(error);
+        }).catch(error => {
+            toastr.error(error);
         });
     }
 
@@ -52,6 +61,7 @@ class ManageCoursePage extends Component {
             errors={this.state.errors}
             onChange={this.updateCourseState}
             onSave={this.saveCourse}
+            loading={this.state.saving}
             />)
     }
 }

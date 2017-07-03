@@ -11,7 +11,9 @@ const Main = (props) => {
 
             <Route path="/" exact component={Home} />
             <Route path="/courses" component={CoursesPage} />
-            <Route path="/course/:id" component={ManageCoursePage} />
+            
+            <Route  path="/course/:id?" component={ManageCoursePage} />
+            
             <Route path="/about" component={About} />
 
 

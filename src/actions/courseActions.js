@@ -36,9 +36,6 @@ export const saveCourse = (coruse) => (dispatch, getState) => {
             course.id
                 ? dispatch(updateCourseSuccess(course))
                 : dispatch(createCourseSuccess(course));
-        })
-        .catch(error => {
-            throw error
         });
 };
 

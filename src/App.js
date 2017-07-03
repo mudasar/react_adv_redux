@@ -13,11 +13,16 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-       <Header loading={this.props.loading} />
+        <div className="row">
+          <div className="col-lg-10">
+ <Header loading={this.props.loading} />
        <Main />
        {this.props.children}
        <hr/>
        <Footer />
+          </div>
+        </div>
+      
       </div>
     );
   }

@@ -12,5 +12,8 @@ export const ajaxStatusReducer = (state = ajaxStatusReducerInitialState, action)
     }else if(actionTypeEndsInSuccess(action.type)) {
         return state - 1;
     }
+    else if(action.type == types.AJAX_CALL_ERROR){
+        return state -1;
+    }
     return state;
 }
